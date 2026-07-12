@@ -1,6 +1,5 @@
 import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import styles from "./packages.module.css";
 
 type Metric = { icon: string; label: string; value: string };
@@ -141,6 +140,9 @@ const deluxePackages: PackageCard[] = [
     ],
     cta: "Book Deluxe",
   },
+];
+
+const hajjPackages: PackageCard[] = [
   {
     variant: "featured",
     name: "Premium Hajj Tier",
@@ -252,7 +254,7 @@ function PackageGrid({
 export default function PackagesPage() {
   return (
     <>
-      <Header active="Packages" showPhone={false} />
+
 
       {/* BANNER */}
       <section className="page-banner">
@@ -292,7 +294,89 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      {/* SECTION 3: VIP */}
+      {/* SECTION 3: HAJJ */}
+      <section className={`${styles["package-category-section"]} ${styles["hajj-section"]}`}>
+        <div className="container">
+          <div className={styles["section-intro"]}>
+            <span>Once in a Lifetime Journey</span>
+            <h3>Hajj Packages</h3>
+          </div>
+
+          <div className={styles["hajj-horizontal-card"]}>
+            <div className={styles["hajj-card-image"]}>
+              <img src="/images/hajj.jpg" alt="Hajj Pilgrimage Kaaba" />
+              <div className={styles["hajj-badge"]}>Premium Hajj Tier</div>
+            </div>
+            
+            <div className={styles["hajj-card-content"]}>
+              <h3>Complete Spiritual Pathway</h3>
+              <p className={styles["hajj-desc"]}>
+                Embark on the most sacred journey of your lifetime with our meticulously planned Premium Hajj Package. 
+                Experience unparalleled spiritual fulfillment without logistical worries. We provide guided Ziyarat, premium Mina & Arafat 
+                accommodations, and constant support from dedicated Islamic scholars and guides.
+              </p>
+              
+              <div className={styles["hajj-features-grid"]}>
+                <div className={styles["hajj-feature"]}>
+                  <i className="fa-solid fa-plane"></i>
+                  <div>
+                    <strong>Direct Flights</strong>
+                    <span>Saudi Airlines / Air India</span>
+                  </div>
+                </div>
+                <div className={styles["hajj-feature"]}>
+                  <i className="fa-solid fa-tent"></i>
+                  <div>
+                    <strong>Mina Camp Proximity</strong>
+                    <span>Category-A Upgraded Tents near Jamarat</span>
+                  </div>
+                </div>
+                <div className={styles["hajj-feature"]}>
+                  <i className="fa-solid fa-hotel"></i>
+                  <div>
+                    <strong>Hospitality Structure</strong>
+                    <span>Premium Azizia Apartments & 5-Star Medinah</span>
+                  </div>
+                </div>
+                <div className={styles["hajj-feature"]}>
+                  <i className="fa-solid fa-utensils"></i>
+                  <div>
+                    <strong>Full Board Meals</strong>
+                    <span>3 Times Indian Buffet (Mina/Arafat/Azizia)</span>
+                  </div>
+                </div>
+                <div className={styles["hajj-feature"]}>
+                  <i className="fa-solid fa-kit-medical"></i>
+                  <div>
+                    <strong>Management & Safety</strong>
+                    <span>On-site Dedicated Doctors & Scholars</span>
+                  </div>
+                </div>
+                <div className={styles["hajj-feature"]}>
+                  <i className="fa-solid fa-bus"></i>
+                  <div>
+                    <strong>Transfers & Qurbani</strong>
+                    <span>AC Private Buses & Qurbani Included</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles["hajj-action-row"]}>
+                <div className={styles["hajj-price-block"]}>
+                  <span className={styles["hajj-price-label"]}>Starting From</span>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '10px' }}>
+                    <del style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>Rs. 7,00,000</del>
+                    <span className={styles["hajj-price-value"]}>Rs. 6,50,000</span>
+                  </div>
+                </div>
+                <a href="/contact" className="btn btn-primary">Enquire for Hajj</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: VIP */}
       <section className={styles["package-category-section"]}>
         <div className="container">
           <div className={styles["section-intro"]}>
@@ -306,7 +390,6 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      <Footer />
     </>
   );
 }

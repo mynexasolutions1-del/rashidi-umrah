@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import Testimonials from "@/components/Testimonials";
 import styles from "./home.module.css";
 
@@ -136,7 +135,7 @@ const whyChoose = [
 export default function Home() {
   return (
     <>
-      <Header active="Home" />
+
 
       {/* HERO SECTION */}
       <section className={styles.hero}>
@@ -161,10 +160,7 @@ export default function Home() {
 
               <div className={styles["hero-actions"]}>
                 <button className="btn btn-primary">
-                  Explore Packages <i className="fa-solid fa-arrow-right"></i>
-                </button>
-                <button className="btn btn-outline">
-                  Download Brochure <i className="fa-solid fa-download"></i>
+                  Explore Packages
                 </button>
               </div>
 
@@ -215,28 +211,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* OUR SERVICES SECTION */}
-      <section className={styles.services}>
-        <div className="container">
-          <div className="section-header">
-            <h2>Our Services</h2>
-            <p>Everything you need for a blessed and hassle-free journey</p>
-          </div>
-
-          <div className={styles["services-grid"]}>
-            {services.map((service) => (
-              <div key={service.title} className={styles["service-card"]}>
-                <div className={styles["service-icon"]}>
-                  <i className={service.icon}></i>
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* OUR POPULAR PACKAGES SECTION */}
       <section className={styles.packages}>
         <div className="container">
@@ -244,9 +218,6 @@ export default function Home() {
             <div className="section-header">
               <h2>Our Popular Packages</h2>
             </div>
-            <a href="/packages" className={styles["view-all-link"]}>
-              View All Packages <i className="fa-solid fa-arrow-right"></i>
-            </a>
           </div>
 
           <div className={styles["packages-grid"]}>
@@ -281,6 +252,34 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: "center", marginTop: "40px" }}>
+            <a href="/packages" className="btn btn-primary">
+              View All Packages
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* OUR SERVICES SECTION */}
+      <section className={styles.services}>
+        <div className="container">
+          <div className="section-header">
+            <h2>Our Services</h2>
+            <p>Everything you need for a blessed and hassle-free journey</p>
+          </div>
+
+          <div className={styles["services-grid"]}>
+            {services.map((service) => (
+              <div key={service.title} className={styles["service-card"]}>
+                <div className={styles["service-icon"]}>
+                  <i className={service.icon}></i>
+                </div>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
               </div>
             ))}
           </div>
@@ -420,6 +419,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NATIONWIDE PILGRIMS SECTION */}
+      <section className={styles["nationwide-section"]}>
+        <div className="container">
+          <div className={styles["nationwide-grid"]}>
+            <div className={styles["nationwide-text"]}>
+              <h2>Serving Pilgrims From Every Corner of India</h2>
+              <ul className={styles["nationwide-features"]}>
+                <li><i className="fa-solid fa-plane-departure"></i> Departures from all major Indian airports</li>
+                <li><i className="fa-solid fa-passport"></i> Nationwide doorstep visa & passport assistance</li>
+                <li><i className="fa-solid fa-headset"></i> Dedicated 24/7 Pan-India customer support</li>
+              </ul>
+
+              <div className={styles["nationwide-cities"]}>
+                {[
+                  "Delhi", "Mumbai", "Hyderabad", "Bangalore", "Chennai",
+                  "Kolkata", "Ahmedabad", "Pune", "Lucknow", "Jaipur", "& More",
+                ].map((city) => (
+                  <span key={city} className={styles["city-badge"]}>
+                    <i className="fa-solid fa-location-dot"></i> {city}
+                  </span>
+                ))}
+              </div>
+
+              {/* Off-page SEO Block for Localities */}
+              <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
+                We provide Umrah and Hajj packages and services for pilgrims from all major cities and states in India, including: Delhi, Mumbai, Hyderabad, Bangalore (Bengaluru), Chennai, Kolkata, Ahmedabad, Pune, Surat, Jaipur, Lucknow, Kanpur, Nagpur, Indore, Bhopal, Patna, Vadodara, Agra, Varanasi, Srinagar, Amritsar, Chandigarh, Guwahati, Kochi (Cochin), Thiruvananthapuram, Kozhikode, Malappuram, Mangalore, Coimbatore, Madurai, Vijayawada, Visakhapatnam, Raipur, Ranchi, Bhubaneswar, Dehradun, Ludhiana, Jalandhar, Allahabad, Aligarh, Meerut, Moradabad, Bareilly, Gorakhpur, Jodhpur, Udaipur, Ajmer, Bikaner, Surat, Rajkot, Bhavnagar, Jamnagar, Nashik, Aurangabad, Solapur, Amravati, Kolhapur, Hubli, Belgaum, Mysore, Gulbarga, Guntur, Nellore, Kurnool, Warangal, Nizamabad, Karimnagar, Dhanbad, Jamshedpur, Bokaro, Asansol, Siliguri, Durgapur, Howrah, Cuttack, Rourkela, Shillong, Agartala, Imphal, Aizawl, Jammu, Anantnag, Baramulla, Kargil, Leh, Andaman, Lakshadweep, Goa, Panaji, and everywhere else across the length and breadth of India.
+              </div>
+            </div>
+            <div className={styles["nationwide-images"]}>
+              <div className={styles["n-img"]}>
+                <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=800&q=80" alt="Pilgrims Gathering in Makkah" />
+              </div>
+              <div className={styles["n-img"]}>
+                <img src="https://images.unsplash.com/photo-1763618769707-3e318c25325f?auto=format&fit=crop&w=800&q=80" alt="Family Traveling for Umrah" />
+              </div>
+              <div className={styles["n-img"]}>
+                <img src="https://images.unsplash.com/photo-1545595271-908483fa6e50?auto=format&fit=crop&w=800&q=80" alt="Pilgrim Ready for Departure" />
+              </div>
+              <div className={styles["n-img"]}>
+                <img src="https://images.unsplash.com/photo-1532968899863-5b52ef155913?auto=format&fit=crop&w=800&q=80" alt="Pilgrims Arriving at the Airport" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* TESTIMONIALS SECTION */}
       <section className={styles.testimonials}>
         <div className="container">
@@ -456,7 +501,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Footer />
+
     </>
   );
 }

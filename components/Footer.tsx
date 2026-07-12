@@ -48,12 +48,6 @@ export default function Footer() {
                 <Link href="/packages">Packages</Link>
               </li>
               <li>
-                <a href="#">Destinations</a>
-              </li>
-              <li>
-                <a href="#">Gallery</a>
-              </li>
-              <li>
                 <Link href="/contact">Contact Us</Link>
               </li>
             </ul>
@@ -76,30 +70,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/packages">Group Departures</Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-col">
-            <h4>Services</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#">Visa Assistance</a>
-              </li>
-              <li>
-                <a href="#">Flight Booking</a>
-              </li>
-              <li>
-                <a href="#">Transport</a>
-              </li>
-              <li>
-                <a href="#">Food Services</a>
-              </li>
-              <li>
-                <a href="#">Local Ziyarat</a>
-              </li>
-              <li>
-                <a href="#">International Tours</a>
               </li>
             </ul>
           </div>

@@ -1,61 +1,67 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
   { href: "/packages", label: "Packages" },
-  { href: "#", label: "Services" },
-  { href: "#", label: "Destinations" },
-  { href: "#", label: "Gallery" },
+  { href: "/about", label: "About Us" },
   { href: "/contact", label: "Contact Us" },
 ];
 
-export default function Header({
-  active,
-  showPhone = true,
-}: {
-  active: string;
-  showPhone?: boolean;
-}) {
+export default function Header() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
   return (
     <header>
       <div className="nav-container">
-        <div className="logo">
-          <div className="logo-icon">
-            <i className="fa-solid fa-kaaba"></i>
-          </div>
-          <div className="logo-text">
-            <h1>RASHIDI</h1>
-            <span>Umrah & Hajj</span>
-          </div>
-        </div>
+        <Link href="/" className="logo">
+          <img 
+            src="/images/logo.jpeg" 
+            alt="Rashidi Umrah Logo" 
+            style={{ height: '65px', width: 'auto', borderRadius: '4px' }} 
+          />
+          <span className="logo-cursive-text">Rashidi Umrah & Hajj</span>
+        </Link>
 
-        <nav className="nav-menu">
+        <nav className={`nav-menu ${open ? "nav-menu-open" : ""}`}>
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className={`nav-link ${active === item.label ? "active" : ""}`}
+              className={`nav-link ${pathname === item.href ? "active" : ""}`}
+              onClick={() => setOpen(false)}
             >
               {item.label}
             </Link>
           ))}
+          <div className="mobile-nav-actions">
+            <a href="tel:+918094771024" className="contact-widget-icon" aria-label="Call Us">
+              <i className="fa-solid fa-phone"></i>
+            </a>
+            <button className="header-btn">
+              Enquire Now
+            </button>
+          </div>
         </nav>
 
         <div className="nav-right">
-          {showPhone && (
-            <div className="contact-widget">
-              <div className="icon-box">
-                <i className="fa-solid fa-phone"></i>
-              </div>
-              <div className="contact-details">
-                <span>Call Us Anytime</span>
-                <a href="tel:+918094771024">+91 80947 71024</a>
-              </div>
-            </div>
-          )}
-          <button className="btn btn-primary" style={{ width: "auto" }}>
+          <a href="tel:+918094771024" className="contact-widget-icon" aria-label="Call Us">
+            <i className="fa-solid fa-phone"></i>
+          </a>
+          <button className="header-btn">
             Enquire Now
+          </button>
+          <button
+            className="nav-toggle"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <i className={`fa-solid ${open ? "fa-xmark" : "fa-bars"}`}></i>
           </button>
         </div>
       </div>

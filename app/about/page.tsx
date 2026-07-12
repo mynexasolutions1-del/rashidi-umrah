@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import styles from "./about.module.css";
 
 const stats = [
@@ -55,7 +54,7 @@ const timeline = [
 export default function AboutPage() {
   return (
     <>
-      <Header active="About Us" showPhone={false} />
+
 
       {/* INNER PAGE BANNER */}
       <section className="page-banner">
@@ -186,7 +185,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
+
     </>
   );
 }

@@ -1,6 +1,8 @@
+"use client";
+
+import React, { FormEvent } from "react";
 import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 import styles from "./contact.module.css";
 
 const infoCards = [
@@ -58,9 +60,22 @@ const infoCards = [
 ];
 
 export default function ContactPage() {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name")?.toString() || "";
+    const phone = formData.get("phone")?.toString() || "";
+    const subject = formData.get("subject")?.toString() || "";
+    const message = formData.get("message")?.toString() || "";
+
+    const whatsappMessage = `*New Contact Enquiry*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Purpose:* ${subject}%0A*Message:* ${message}`;
+    const targetUrl = `https://wa.me/918094771024?text=${whatsappMessage}`;
+    window.open(targetUrl, "_blank");
+  };
+
   return (
     <>
-      <Header active="Contact Us" />
+
 
       {/* INNER PAGE BANNER */}
       <section className="page-banner">
@@ -100,51 +115,49 @@ export default function ContactPage() {
                 to you within 24 business hours.
               </p>
 
-              <form action="#" method="POST">
+              <form onSubmit={handleSubmit}>
                 <div className={styles["form-grid"]}>
                   <div className={styles["form-group"]}>
                     <label htmlFor="name">Your Name</label>
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       className={styles["form-control"]}
                       placeholder="Enter your full name"
                       required
                     />
                   </div>
                   <div className={styles["form-group"]}>
-                    <label htmlFor="email">Email Address</label>
-                    <input
-                      type="email"
-                      id="email"
-                      className={styles["form-control"]}
-                      placeholder="Enter your email ID"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div className={styles["form-grid"]}>
-                  <div className={styles["form-group"]}>
                     <label htmlFor="phone">Phone Number</label>
                     <input
                       type="tel"
                       id="phone"
+                      name="phone"
                       className={styles["form-control"]}
                       placeholder="Enter contact number"
                       required
                     />
                   </div>
-                  <div className={styles["form-group"]}>
-                    <label htmlFor="subject">Purpose / Subject</label>
-                    <input
-                      type="text"
-                      id="subject"
-                      className={styles["form-control"]}
-                      placeholder="e.g. Economy Package Enquire"
-                      required
-                    />
-                  </div>
+                </div>
+
+                <div className={`${styles["form-group"]} ${styles["full-width"]}`}>
+                  <label htmlFor="subject">Purpose / Subject</label>
+                  <select
+                    id="subject"
+                    name="subject"
+                    className={styles["form-control"]}
+                    required
+                    defaultValue=""
+                  >
+                    <option value="" disabled>Select your purpose</option>
+                    <option value="Economy Umrah Package">Economy Umrah Package</option>
+                    <option value="Deluxe Umrah Package">Deluxe Umrah Package</option>
+                    <option value="VIP Executive Umrah">VIP Executive Umrah</option>
+                    <option value="Premium Hajj Package">Premium Hajj Package</option>
+                    <option value="Visa & Ticketing Only">Visa & Ticketing Only</option>
+                    <option value="General Enquiry">General Enquiry</option>
+                  </select>
                 </div>
 
                 <div
@@ -153,6 +166,7 @@ export default function ContactPage() {
                   <label htmlFor="message">Your Message</label>
                   <textarea
                     id="message"
+                    name="message"
                     className={styles["form-control"]}
                     placeholder="Write details about your travel query here..."
                     required
@@ -170,16 +184,20 @@ export default function ContactPage() {
 
       {/* GOOGLE MAPS EMBED SECTION */}
       <section className={styles["map-section"]}>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!11m18!1m12!1m3!1d3501.9936814980756!2d77.2167232!3d28.6314512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b7419401%3A0x5e20ef0d27c9ec9b!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-          title="Rashidi Umrah Office Location"
-        ></iframe>
+        <div className="container">
+          <div className={styles["map-frame"]}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!11m18!1m12!1m3!1d3501.9936814980756!2d77.2167232!3d28.6314512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b7419401%3A0x5e20ef0d27c9ec9b!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Rashidi Umrah Office Location"
+            ></iframe>
+          </div>
+        </div>
       </section>
 
-      <Footer />
+
     </>
   );
 }
