@@ -8,10 +8,21 @@ export default function Footer() {
           <div className="footer-col footer-about">
             <div className="logo" style={{ marginBottom: "20px" }}>
               <div
-                className="logo-icon"
-                style={{ background: "white", color: "var(--primary)" }}
+                style={{
+                  background: "white",
+                  borderRadius: "8px",
+                  padding: "4px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
               >
-                <i className="fa-solid fa-kaaba"></i>
+                <img
+                  src="/images/logo.jpeg"
+                  alt="Rashidi Umrah Logo"
+                  style={{ height: "50px", width: "auto", borderRadius: "4px" }}
+                />
               </div>
               <div className="logo-text">
                 <h1 style={{ color: "white" }}>RASHIDI</h1>
@@ -20,17 +31,13 @@ export default function Footer() {
             </div>
             <p>Your trusted partner for Umrah, Hajj and Spiritual journeys.</p>
             <div className="social-links">
-              <a href="#" aria-label="Facebook">
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
-              <a href="#" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/rashidiumrahtourofficial/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
                 <i className="fa-brands fa-instagram"></i>
-              </a>
-              <a href="#" aria-label="LinkedIn">
-                <i className="fa-brands fa-linkedin-in"></i>
-              </a>
-              <a href="#" aria-label="YouTube">
-                <i className="fa-brands fa-youtube"></i>
               </a>
             </div>
           </div>
