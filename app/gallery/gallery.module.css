@@ -1,0 +1,136 @@
+/* --- INTERACTIVE GALLERY SECTION --- */
+.gallery-section {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+}
+
+/* Interactive Filter Tabs */
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  background-color: var(--bg-white);
+  border: 1px solid #efe6d3;
+  border-radius: 30px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Grid System with Premium Aspect Ratios */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.gallery-item {
+  background-color: var(--bg-white);
+  border-radius: 8px;
+  border: 1px solid #efe6d3;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: block;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
+  overflow: hidden;
+  background-color: var(--primary);
+}
+
+.image-wrapper img {
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+/* Micro-interactions on Hover */
+.gallery-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+}
+
+.gallery-item:hover .image-wrapper img {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(transparent 50%, rgba(5, 38, 30, 0.7));
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.gallery-item:hover .image-overlay {
+  opacity: 1;
+}
+
+.item-details {
+  padding: 18px;
+  background: var(--bg-white);
+}
+
+.item-details span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-hover);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.item-details h4 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: var(--primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-section {
+    padding: 50px 0;
+  }
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .filter-btn {
+    padding: 8px 18px;
+    font-size: 0.8rem;
+  }
+}

@@ -48,6 +48,9 @@ export default function Footer() {
                 <Link href="/packages">Packages</Link>
               </li>
               <li>
+                <Link href="/gallery">Gallery</Link>
+              </li>
+              <li>
                 <Link href="/contact">Contact Us</Link>
               </li>
             </ul>

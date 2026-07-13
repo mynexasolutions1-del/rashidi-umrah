@@ -173,6 +173,41 @@
   line-height: 1.6;
 }
 
+/* --- GALLERY PREVIEW SECTION --- */
+.gallery-preview {
+  padding: 80px 0;
+  background-color: var(--bg-light);
+}
+
+.gallery-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.gallery-preview-item {
+  position: relative;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.gallery-preview-item img {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-preview-item:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-preview-cta {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
 /* --- PACKAGES SECTION --- */
 .packages {
   padding: 80px 0;
@@ -648,6 +683,59 @@
   right: -20px;
 }
 
+/* --- INSTAGRAM REELS SECTION --- */
+.reels-section {
+  padding: 80px 0 90px 0;
+  background-color: var(--bg-white);
+  overflow: hidden;
+}
+
+.reels-scroll-outer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.reel-item {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .reels-section {
+    padding: 55px 0 65px 0;
+  }
+  .reels-scroll-outer {
+    max-width: 100%;
+    padding: 0;
+  }
+  .reels-grid {
+    display: flex;
+    grid-template-columns: unset;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding: 0 50px 10px 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .reels-grid::-webkit-scrollbar {
+    display: none;
+  }
+  .reel-item {
+    flex: 0 0 85vw;
+    max-width: 380px;
+    justify-content: flex-start;
+    scroll-snap-align: start;
+  }
+}
+
 /* --- CTA BANNER --- */
 .cta-banner {
   padding-bottom: 70px;
@@ -711,6 +799,9 @@
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .gallery-preview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -740,6 +831,12 @@
   }
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-preview-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-preview-item {
+    height: 220px;
   }
   .why-grid {
     grid-template-columns: repeat(2, 1fr);

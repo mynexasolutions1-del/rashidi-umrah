@@ -1,7 +1,24 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import Testimonials from "@/components/Testimonials";
+import InstagramReels from "@/components/InstagramReels";
 import styles from "./home.module.css";
+
+const galleryPreview = [
+  {
+    src: "/images/gallery/12.webp",
+    alt: "Majestic Kaaba and Clock Tower View",
+  },
+  {
+    src: "/images/gallery/9.jpeg",
+    alt: "Masjid Nabawi Night View",
+  },
+  {
+    src: "/images/gallery/6.jpeg",
+    alt: "Group outdoor photo",
+  },
+];
 
 const services = [
   {
@@ -286,6 +303,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* GALLERY PREVIEW SECTION */}
+      <section className={styles["gallery-preview"]}>
+        <div className="container">
+          <div className="section-header">
+            <h2>Our Gallery</h2>
+            <p>Glimpses from our pilgrims&apos; sacred journeys</p>
+          </div>
+
+          <div className={styles["gallery-preview-grid"]}>
+            {galleryPreview.map((item) => (
+              <div key={item.src} className={styles["gallery-preview-item"]}>
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className={styles["gallery-preview-cta"]}>
+            <Link href="/gallery" className="btn btn-primary">
+              View More <i className="fa-solid fa-arrow-right"></i>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ABOUT US SECTION */}
       <section className={styles["about-us"]}>
         <div className="container">
@@ -473,6 +519,19 @@ export default function Home() {
           </div>
 
           <Testimonials />
+        </div>
+      </section>
+
+      {/* INSTAGRAM REELS SECTION */}
+      <section className={styles["reels-section"]}>
+        <div className="container">
+          <div className="section-header">
+            <h2>Follow Our Journey</h2>
+            <p>Real moments from our pilgrims, straight from Instagram</p>
+          </div>
+        </div>
+        <div className={styles["reels-scroll-outer"]}>
+          <InstagramReels />
         </div>
       </section>
 

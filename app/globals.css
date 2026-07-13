@@ -283,6 +283,13 @@ header {
   margin-bottom: 10px;
 }
 
+.page-banner p {
+  font-size: 1rem;
+  color: #b3c5c2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .breadcrumbs {
   font-size: 0.88rem;
   color: #a3beba;
