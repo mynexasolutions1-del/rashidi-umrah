@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Gallery - Rashidi Umrah Tours & Travels</title>
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Framework -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #05261e;
+            --primary-light: #0b3d32;
+            --accent: #bfa366;
+            --accent-hover: #aa8e52;
+            --text-dark: #222222;
+            --text-muted: #666666;
+            --bg-light: #fbf9f4;
+            --bg-white: #ffffff;
+            --font-heading: 'Marcellus', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --shadow: 0 15px 35px rgba(5, 38, 30, 0.05);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .logo-text h1 {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: block;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 22px;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent);
+        }
+
+        /* --- INNER PAGE HERO --- */
+        .page-hero {
+            background: linear-gradient(rgba(5, 38, 30, 0.9), rgba(3, 25, 20, 0.95)), 
+                        url('12.webp') no-repeat center center/cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .page-hero h2 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .page-hero p {
+            font-size: 1rem;
+            color: #b3c5c2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- INTERACTIVE GALLERY SECTION --- */
+        .gallery-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        /* Interactive Filter Tabs */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            background-color: var(--bg-white);
+            border: 1px solid #efe6d3;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Grid System with Premium Aspect Ratios */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .gallery-item {
+            background-color: var(--bg-white);
+            border-radius: 8px;
+            border: 1px solid #efe6d3;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: block;
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 75%; /* Structured layout balance */
+            overflow: hidden;
+            background-color: var(--primary);
+        }
+
+        .image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        /* Micro-interactions on Hover */
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .gallery-item:hover .image-wrapper img {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(transparent 50%, rgba(5, 38, 30, 0.7));
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .zoom-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--accent);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transform: translateY(15px);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .zoom-icon {
+            transform: translateY(0);
+        }
+
+        .item-details {
+            padding: 18px;
+            background: var(--bg-white);
+        }
+
+        .item-details span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent-hover);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .item-details h4 {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            color: var(--primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #031914;
+            color: #b3c5c2;
+            padding: 50px 0 25px 0;
+            font-size: 0.85rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        /* --- RESPONSIVE ADJUSTMENTS --- */
+        @media (max-width: 992px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .page-hero h2 {
+                font-size: 2.2rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION HEADER -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-kaaba"></i></div>
+                <div class="logo-text">
+                    <h1>RASHIDI</h1>
+                    <span>Umrah & Hajj</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="index.html#packages-section" class="nav-link">Packages</a>
+                <a href="#" class="nav-link ">Services</a>
+                <a href="#" class="nav-link">Destinations</a>
+                <a href="gallery.html" class="nav-link active">Gallery</a>
+                <a href="contact.html" class="nav-link">Contact Us</a>
+            </nav>
+
+            <button class="btn btn-primary">Enquire Now</button>
+        </div>
+    </header>
+
+    <!-- PAGE HERO BANNER -->
+    <section class="page-hero">
+        <div class="container">
+            <h2>Our Journey Gallery</h2>
+            <p>Real glimpses from our premium group travels, holy sites, and our family of blessed pilgrims.</p>
+        </div>
+    </section>
+
+    <!-- FILTERABLE GALLERY SECTION -->
+    <section class="gallery-section">
+        <div class="container">
+            
+            <!-- Filters -->
+            <div class="gallery-filters">
+                <button class="filter-btn active" onclick="filterGallery('all')">All Media</button>
+                <button class="filter-btn" onclick="filterGallery('makkah')">Makkah Holy Sites</button>
+                <button class="filter-btn" onclick="filterGallery('madinah')">Madinah Holy Sites</button>
+                <button class="filter-btn" onclick="filterGallery('ziyarat')">Local Ziyarats</button>
+            </div>
+
+            <!-- Grid Framework -->
+            <div class="gallery-grid">
+                
+                <!-- Image 12 (New Addition - High Priority Placement) -->
+                <div class="gallery-item makkah">
+                    <div class="image-wrapper">
+                        <img src="12.webp" alt="Majestic Kaaba and Clock Tower View">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Makkah Holy Sites</span>
+                        <h4>The Majestic Kaaba & Clock Tower</h4>
+                    </div>
+                </div>
+
+                <!-- Image 13 (New Addition) -->
+                <div class="gallery-item makkah">
+                    <div class="image-wrapper">
+                        <img src="13.webp" alt="Peaceful Prayers at the Holy Kaaba">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Makkah Holy Sites</span>
+                        <h4>Serene Moments of Devotion</h4>
+                    </div>
+                </div>
+
+                <!-- Image 10 -->
+                <div class="gallery-item makkah">
+                    <div class="image-wrapper">
+                        <img src="10.webp" alt="Makkah Holy Kaaba Crowd">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Makkah Holy Sites</span>
+                        <h4>The Holy Kaaba Tawaaf Gathering</h4>
+                    </div>
+                </div>
+
+                <!-- Image 11 (New Addition) -->
+                <div class="gallery-item makkah">
+                    <div class="image-wrapper">
+                        <img src="11.webp" alt="Panoramic View of Mina Pilgrimage Valley">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Makkah Holy Sites</span>
+                        <h4>Mina Valley & Pilgrimage Path</h4>
+                    </div>
+                </div>
+
+                <!-- Image 5 -->
+                <div class="gallery-item makkah">
+                    <div class="image-wrapper">
+                        <img src="5.jpeg" alt="Pilgrims in Ihram Makkah">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Makkah Holy Sites</span>
+                        <h4>Pilgrims in Ihram at Haram</h4>
+                    </div>
+                </div>
+
+                <!-- Image 7 -->
+                <div class="gallery-item makkah">
+                    <div class="image-wrapper">
+                        <img src="7.jpeg" alt="Haram Complex Photo">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Makkah Holy Sites</span>
+                        <h4>Haram Courtyard Group Moment</h4>
+                    </div>
+                </div>
+
+                <!-- Image 9 -->
+                <div class="gallery-item madinah">
+                    <div class="image-wrapper">
+                        <img src="9.jpeg" alt="Masjid Nabawi Night View">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Madinah Holy Sites</span>
+                        <h4>Al-Masjid an-Nabawi Night Devotion</h4>
+                    </div>
+                </div>
+
+                <!-- Image 1 -->
+                <div class="gallery-item ziyarat">
+                    <div class="image-wrapper">
+                        <img src="1.jpeg" alt="Pilgrims at Quba Mosque">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Local Ziyarats</span>
+                        <h4>Group Gathering at Quba Plain</h4>
+                    </div>
+                </div>
+
+                <!-- Image 2 -->
+                <div class="gallery-item ziyarat">
+                    <div class="image-wrapper">
+                        <img src="2.jpeg" alt="Pilgrims gathering local transit">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Local Ziyarats</span>
+                        <h4>Ziyarat Group Transit Halt</h4>
+                    </div>
+                </div>
+
+                <!-- Image 3 -->
+                <div class="gallery-item ziyarat">
+                    <div class="image-wrapper">
+                        <img src="3.jpeg" alt="Historical Sites Visitation">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Local Ziyarats</span>
+                        <h4>Historical Site Tour Group</h4>
+                    </div>
+                </div>
+
+                <!-- Image 4 -->
+                <div class="gallery-item ziyarat">
+                    <div class="image-wrapper">
+                        <img src="4.jpeg" alt="Pilgrims Group Photo">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Local Ziyarats</span>
+                        <h4>Sacred Landscape Assembly</h4>
+                    </div>
+                </div>
+
+                <!-- Image 6 -->
+                <div class="gallery-item ziyarat">
+                    <div class="image-wrapper">
+                        <img src="6.jpeg" alt="Group outdoor photo">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Local Ziyarats</span>
+                        <h4>Our Valued Pilgrims Assembly</h4>
+                    </div>
+                </div>
+
+                <!-- Image 8 -->
+                <div class="gallery-item ziyarat">
+                    <div class="image-wrapper">
+                        <img src="8.jpeg" alt="Group at landmark destination">
+                        <div class="image-overlay"><div class="zoom-icon"><i class="fa-solid fa-plus"></i></div></div>
+                    </div>
+                    <div class="item-details">
+                        <span>Local Ziyarats</span>
+                        <h4>Historical Landmark Gathering</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <style>
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin: 0;
+        }
+    </style>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>RASHIDI TOURS</h4>
+                    <p>Dedicated to delivering transparent and comfortable pilgrimage logistics across decades of operations.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Agency</a></li>
+                        <li><a href="contact.html">Contact Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Desk</h4>
+                    <p>Email: info@rashidiumrah.com</p>
+                    <p>Call: +91 80947 71024</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rashidi Umrah Tours & Travels. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE FILTER LOGIC -->
+    <script>
+        function filterGallery(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const items = document.querySelectorAll('.gallery-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
