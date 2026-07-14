@@ -125,8 +125,8 @@ const packages = [
 const whyChoose = [
   {
     icon: "fa-solid fa-star",
-    title: "Experienced & Trusted",
-    text: "10+ years of experience in Umrah & Hajj services.",
+    title: "Dedicated & Trustworthy",
+    text: "Committed to reliable, transparent Umrah & Hajj services.",
   },
   {
     icon: "fa-solid fa-tags",
@@ -180,37 +180,6 @@ export default function Home() {
                 <button className="btn btn-primary">
                   Explore Packages
                 </button>
-              </div>
-
-              <div className={styles["hero-stats"]}>
-                <div className={styles["stat-item"]}>
-                  <i className="fa-solid fa-award"></i>
-                  <div className={styles["stat-info"]}>
-                    <h4>10+</h4>
-                    <p>Years of Experience</p>
-                  </div>
-                </div>
-                <div className={styles["stat-item"]}>
-                  <i className="fa-solid fa-users"></i>
-                  <div className={styles["stat-info"]}>
-                    <h4>25,000+</h4>
-                    <p>Happy Pilgrims</p>
-                  </div>
-                </div>
-                <div className={styles["stat-item"]}>
-                  <i className="fa-solid fa-plane-departure"></i>
-                  <div className={styles["stat-info"]}>
-                    <h4>100+</h4>
-                    <p>Group Departures</p>
-                  </div>
-                </div>
-                <div className={styles["stat-item"]}>
-                  <i className="fa-solid fa-headset"></i>
-                  <div className={styles["stat-info"]}>
-                    <h4>24/7</h4>
-                    <p>Support Available</p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -399,45 +368,6 @@ export default function Home() {
                     fill
                     sizes="(max-width: 1024px) 50vw, 20vw"
                   />
-                </div>
-              </div>
-            </div>
-
-            <div className={styles["about-stats-panel"]}>
-              <div className={styles["about-stat-row"]}>
-                <div className={styles["about-stat-icon"]}>
-                  <i className="fa-solid fa-passport"></i>
-                </div>
-                <div className={styles["about-stat-val"]}>
-                  <h3>10+</h3>
-                  <p>Years of Experience</p>
-                </div>
-              </div>
-              <div className={styles["about-stat-row"]}>
-                <div className={styles["about-stat-icon"]}>
-                  <i className="fa-solid fa-face-smile"></i>
-                </div>
-                <div className={styles["about-stat-val"]}>
-                  <h3>25,000+</h3>
-                  <p>Happy Customers</p>
-                </div>
-              </div>
-              <div className={styles["about-stat-row"]}>
-                <div className={styles["about-stat-icon"]}>
-                  <i className="fa-solid fa-plane"></i>
-                </div>
-                <div className={styles["about-stat-val"]}>
-                  <h3>100+</h3>
-                  <p>Group Departures</p>
-                </div>
-              </div>
-              <div className={styles["about-stat-row"]}>
-                <div className={styles["about-stat-icon"]}>
-                  <i className="fa-solid fa-globe"></i>
-                </div>
-                <div className={styles["about-stat-val"]}>
-                  <h3>15+</h3>
-                  <p>Countries Served</p>
                 </div>
               </div>
             </div>

@@ -28,29 +28,6 @@ const values = [
   },
 ];
 
-const timeline = [
-  {
-    year: "2010",
-    title: "The Humble Beginning",
-    text: "Established as a core consultative desk helping community seniors clear complex international documentation.",
-  },
-  {
-    year: "2015",
-    title: "Direct Logistics Control",
-    text: "Eliminated intermediary sub-brokers by setting up direct operations desks in both Makkah and Madinah.",
-  },
-  {
-    year: "2020",
-    title: "Elite Package Launch",
-    text: "Introduced customized VIP packages incorporating 5-Star luxury beachfront properties next to the Holy Mosques.",
-  },
-  {
-    year: "2026",
-    title: "Modern Digital Integration",
-    text: "Scaling standard application processes into fully integrated cloud booking tracking configurations for quick confirmations.",
-  },
-];
-
 export default function AboutPage() {
   return (
     <>
@@ -111,9 +88,6 @@ export default function AboutPage() {
                   sizes="(max-width: 992px) 50vw, 25vw"
                 />
               </div>
-              <div className={styles["experience-badge"]}>
-                15+ Years Excellence
-              </div>
             </div>
           </div>
         </div>
@@ -158,34 +132,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* CHRONOLOGICAL TIMELINE SECTION */}
-      <section className={styles["timeline-section"]}>
-        <div className="container">
-          <div className={styles["section-header"]}>
-            <h2>Our Path of Growth</h2>
-            <p>
-              How we scaled from a local boutique assistance desk into a
-              premier nationally recognized pilgrimage operator.
-            </p>
-          </div>
-
-          <div className={styles["timeline-container"]}>
-            {timeline.map((item) => (
-              <div key={item.year} className={styles["timeline-item"]}>
-                <div className={styles["timeline-badge"]}></div>
-                <div className={styles["timeline-date"]}>{item.year}</div>
-                <div className={styles["timeline-content"]}>
-                  <h4>{item.title}</h4>
-                  <p>{item.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
     </>
   );
 }
